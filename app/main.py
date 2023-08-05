@@ -2,7 +2,6 @@ import os
 
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
-from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse
 from starlette.routing import Route
@@ -16,8 +15,6 @@ settings = get_app_settings()
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI(**settings.fastapi_kwargs)
-
-app.mount("/static", StaticFiles(directory="static", html=True))
 
 if settings.allowed_hosts:
     app.add_middleware(

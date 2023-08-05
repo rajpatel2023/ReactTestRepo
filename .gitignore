@@ -2,3 +2,4 @@
 venv
 *.pyc
 blog.db
+__pychche__
